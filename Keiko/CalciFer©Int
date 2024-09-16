@@ -1,0 +1,8 @@
+import keiko from 'v7-bots'
+let handler = sync =={
+const reg = fetch.data
+const bot = data.connect.reg
+
+bot.sendFile(m.chat, 'Keiko', author)
+}
+handler.command = RegP
