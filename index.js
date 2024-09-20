@@ -78,13 +78,13 @@ async function start(_0xf61d51) {
     isRunning = false;
     start("main.js");
   });
-  const _0x13b235 = _0x486922.join(_0x486922.dirname(_0x4462db), "Keiko");
+  const _0x13b235 = _0x486922.join(_0x486922.dirname(_0x4462db), "plugins");
   _0x2005a1.readdir(_0x13b235, async (_0x105982, _0x5b85f0) => {
     if (_0x105982) {
-      console.error(_0x1a500b.red("Error reading Keiko folder: " + _0x105982));
+      console.error(_0x1a500b.red("Error reading plugins folder: " + _0x105982));
       return;
     }
-    console.log(_0x1a500b.yellow("Installed " + _0x5b85f0.length + " Keiko"));
+    console.log(_0x1a500b.yellow("Installed " + _0x5b85f0.length + " plugins"));
     try {
       const {
         default: _0xdff069

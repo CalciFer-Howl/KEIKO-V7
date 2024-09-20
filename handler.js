@@ -272,7 +272,7 @@ export async function handler(_0x20797f) {
     const _0x157097 = _0x2f2fc4?.["admin"] == 'superadmin' || false;
     const _0x1a1f87 = _0x157097 || _0x2f2fc4?.["admin"] == "admin" || false;
     const _0x1b419f = _0x2dd2a2?.["admin"] || false;
-    const _0x5bbd07 = _0x48359f.join(_0x48359f.dirname(fileURLToPath(import.meta.url)), "./Keiko");
+    const _0x5bbd07 = _0x48359f.join(_0x48359f.dirname(fileURLToPath(import.meta.url)), "./plugins");
     for (let _0x544b69 in global.plugins) {
       let _0x3eb71f = global.plugins[_0x544b69];
       if (!_0x3eb71f) {

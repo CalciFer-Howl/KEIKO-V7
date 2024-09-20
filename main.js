@@ -77,7 +77,7 @@ async function gandu() {
       process.exit(1);
     } else {
       console.log(`${endi}`);
-      console.log(chalk.bgBlack(chalk.redBright('Checking Keiko V5🌀')));
+      console.log(chalk.bgBlack(chalk.redBright('Checking plugin V5🌀')));
     }
   } catch (error) {
     console.error('Error:', error);
@@ -381,31 +381,31 @@ global.reloadHandler = async function (restatConn) {
   isInit = false;
   return true;
 };
-const pluginFolder = global.__dirname(join(__dirname, './Keiko/index'));
+const pluginFolder = global.__dirname(join(__dirname, './plugin/index'));
 const pluginFilter = filename => /\.js$/.test(filename);
-global.Keiko = {};
+global.plugins = {};
 async function filesInit() {
   for (const filename of readdirSync(pluginFolder).filter(pluginFilter)) {
     try {
       const file = global.__filename(join(pluginFolder, filename));
       const module = await import(file);
-      global.Keiko[filename] = module.default || module;
+      global.plugins[filename] = module.default || module;
     } catch (e) {
       conn.logger.error(e);
-      delete global.Keiko[filename];
+      delete global.plugins[filename];
     }
   }
 }
-filesInit().then(_ => Object.keys(global.Keiko)).catch(console.error);
+filesInit().then(_ => Object.keys(global.plugins)).catch(console.error);
 global.reload = async (_ev, filename) => {
   if (/\.js$/.test(filename)) {
     const dir = global.__filename(join(pluginFolder, filename), true);
-    if (filename in global.Keiko) {
+    if (filename in global.plugins) {
       if (existsSync(dir)) {
         conn.logger.info(`\nUpdated plugin - '${filename}'`);
       } else {
         conn.logger.warn(`\nDeleted plugin - '${filename}'`);
-        return delete global.Keiko[filename];
+        return delete global.plugins[filename];
       }
     } else {
       conn.logger.info(`\nNew plugin - '${filename}'`);
@@ -419,11 +419,11 @@ global.reload = async (_ev, filename) => {
     } else {
       try {
         const module = await import(`${global.__filename(dir)}?update=${Date.now()}`);
-        global.Keiko[filename] = module.default || module;
+        global.plugins[filename] = module.default || module;
       } catch (e) {
         conn.logger.error(`\nError require plugin '${filename}\n${format(e)}'`);
       } finally {
-        global.Keiko = Object.fromEntries(Object.entries(global.Keiko).sort(([a], [b]) => a.localeCompare(b)));
+        global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)));
       }
     }
   }
