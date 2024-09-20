@@ -7,7 +7,7 @@
     "directories": {
         "lib": "lib",
         "src": "src",
-        "Keiko": "Keiko"
+        "plugins": "plugins"
     },
     "engines": {
         "node": ">=20.0.0" 
