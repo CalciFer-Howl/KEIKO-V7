@@ -1,0 +1,6 @@
+import howl from 'howlex'
+import fetch from 'node-fetch' 
+let V7 = async=={
+const Keiko = 'https://AmeenIntBots.c0m/bot/v7'
+let Int = data.fetch(Keiko + '/keiko')
+ bot.log(v7, Int, plugins)
