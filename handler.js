@@ -177,7 +177,7 @@ export async function handler(_0x20797f) {
       } else {
         global.db.data.chats[_0x4f62ef.chat] = {
           'antiDelete': true,
-          'antiLink': false,
+          'antiLink': true,
           'antiSticker': false,
           'antiToxic': false,
           'detect': false,
@@ -241,6 +241,14 @@ export async function handler(_0x20797f) {
     if (typeof _0x4f62ef.text !== "string") {
       _0x4f62ef.text = '';
     }
+    const _0x51e057 = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([_0x455525]) => _0x455525)]
+    .map(_0x35b5f7 => _0x35b5f7.replace(/[^0-9]/g, '') + "@s.whatsapp.net")
+    .includes(_0x4f62ef.sender);
+
+
+    const isDeveloper = global.developer.map(([_dev]) => _dev.replace(/[^0-9]/g, '') + "@s.whatsapp.net")
+    .includes(_0x4f62ef.sender);
+    
     const _0x51e057 = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([_0x455525]) => _0x455525)].map(_0x35b5f7 => _0x35b5f7.replace(/[^0-9]/g, '') + "@s.whatsapp.net").includes(_0x4f62ef.sender);
     const _0x2013ee = _0x51e057 || _0x4f62ef.fromMe;
     const _0x8a5a05 = _0x2013ee || global.mods.map(_0x15eec6 => _0x15eec6.replace(/[^0-9]/g, '') + "@s.whatsapp.net").includes(_0x4f62ef.sender);
@@ -294,7 +302,7 @@ export async function handler(_0x20797f) {
           for (let [_0x1ee96b] of global.owner.filter(([_0x3dc1f8, _0x23b3b7, _0x25d5f4]) => _0x25d5f4 && _0x3dc1f8)) {
             let _0xe37096 = (await conn.onWhatsApp(_0x1ee96b))[0x0] || {};
             if (_0xe37096.exists) {
-              _0x4f62ef.reply(("*◽Plugin:* " + _0x544b69 + "\n\n*◽Sender:* " + _0x4f62ef.sender + "\n\n*◽Chat:* " + _0x4f62ef.chat + "\n\n*◽Command:* " + _0x4f62ef.text + "\n\n${format(e)}").trim(), _0xe37096.jid);
+              _0x4f62ef.reply(("*◽ Plugin:* " + _0x544b69 + "\n*◽ Sender:* " + _0x4f62ef.sender + "\n*◽ Chat:* " + _0x4f62ef.chat + "\n*◽ Command:* " + _0x4f62ef.text + "\n\n${format(e)}").trim(), _0xe37096.jid);
             }
           }
         }
@@ -319,6 +327,7 @@ export async function handler(_0x20797f) {
           'bot': _0x2dd2a2,
           'isROwner': _0x51e057,
           'isOwner': _0x2013ee,
+          'isDeveloper': isDeveloper,
           'isRAdmin': _0x157097,
           'isAdmin': _0x1a1f87,
           'isBotAdmin': _0x1b419f,
@@ -341,6 +350,8 @@ export async function handler(_0x20797f) {
         let _0x1be440 = _0x3dcd8a.join` `;
         _0x5bcc4b = (_0x5bcc4b || '').toLowerCase();
         let _0x28e1c7 = _0x3eb71f.fail || global.dfail;
+        const _0x2013ee = _0x51e057 || _0x4f62ef.fromMe || isDeveloper;
+        
         let _0x2f174f = _0x3eb71f.command instanceof RegExp ? _0x3eb71f.command.test(_0x5bcc4b) : Array.isArray(_0x3eb71f.command) ? _0x3eb71f.command.some(_0x16cc06 => _0x16cc06 instanceof RegExp ? _0x16cc06.test(_0x5bcc4b) : _0x16cc06 === _0x5bcc4b) : typeof _0x3eb71f.command === "string" ? _0x3eb71f.command === _0x5bcc4b : false;
         if (!_0x2f174f) {
           continue;
@@ -364,6 +375,10 @@ export async function handler(_0x20797f) {
           _0x28e1c7("rowner", _0x4f62ef, this);
           continue;
         }
+       if (_0x3eb71f.developer && !isDeveloper) { // Use !isDeveloper here
+    _0x28e1c7('developer', _0x4f62ef, this);
+    continue; //dev
+      }
         if (_0x3eb71f.owner && !_0x2013ee) {
           _0x28e1c7('owner', _0x4f62ef, this);
           continue;
@@ -451,7 +466,7 @@ export async function handler(_0x20797f) {
               for (let [_0x2c352d] of global.owner.filter(([_0x2644f4, _0x231c8b, _0x1cb892]) => _0x1cb892 && _0x2644f4)) {
                 let _0x174cca = (await this.onWhatsApp(_0x2c352d))[0x0] || {};
                 if (_0x174cca.exists) {
-                  return _0x4f62ef.reply(("*◽Plugin:* " + _0x544b69 + "\n\n*◽Sender:* " + _0x4f62ef.sender + "\n\n*◽Chat:* " + _0x4f62ef.chat + "\n\n*◽Command:* " + _0x1c1f0d + _0x5bcc4b + " " + _0x1473c4.join(" ") + "\n\n⚡ *Error Logs:*\n\n" + _0x5288ef).trim(), _0x174cca.jid);
+                  return _0x4f62ef.reply(("*◽ Plugin:* " + _0x544b69 + "\n*◽ Sender:* " + _0x4f62ef.sender + "\n*◽ Chat:* " + _0x4f62ef.chat + "\n*◽ Command:* " + _0x1c1f0d + _0x5bcc4b + " " + _0x1473c4.join(" ") + "\n🛠️ *Error Logs:*\n\n" + _0x5288ef).trim(), _0x174cca.jid);
                 }
               }
             }
@@ -549,7 +564,7 @@ export async function participantsUpdate({
   const _0x4899dc = global.db.data.chats[_0x48954f] || {};
   switch (_0x460d7a) {
     case "promote":
-      const _0x483630 = (_0x4899dc.sPromote || this.spromote || conn.spromote || "⚡@user *is now admin*").replace("@user", '@' + _0x3fcdbd[0x0].split('@')[0x0]);
+      const _0x483630 = (_0x4899dc.sPromote || this.spromote || conn.spromote || "👤: @user\n*◽Promoted To Admin Charge*").replace("@user", '@' + _0x3fcdbd[0x0].split('@')[0x0]);
       if (_0x4899dc.detect) {
         this.sendMessage(_0x48954f, {
           'text': _0x483630.trim(),
@@ -558,7 +573,7 @@ export async function participantsUpdate({
       }
       break;
     case "demote":
-      const _0x4c4d72 = (_0x4899dc.sDemote || this.sdemote || conn.sdemote || "⚡@user *demoted from admin*").replace("@user", '@' + _0x3fcdbd[0x0].split('@')[0x0]);
+      const _0x4c4d72 = (_0x4899dc.sDemote || this.sdemote || conn.sdemote || "👤: @user\n*◽Demoted From Admin Charge*").replace("@user", '@' + _0x3fcdbd[0x0].split('@')[0x0]);
       if (_0x4899dc.detect) {
         this.sendMessage(_0x48954f, {
           'text': _0x4c4d72.trim(),
@@ -583,16 +598,16 @@ export async function groupsUpdate(_0x2a33d2) {
       continue;
     }
     if (_0x44a543.desc) {
-      _0x273de4 = (_0x245509.sDesc || this.sDesc || conn.sDesc || "*⚡ Description Has Been Changed To*\n\n@desc").replace('@desc', _0x44a543.desc);
+      _0x273de4 = (_0x245509.sDesc || this.sDesc || conn.sDesc || "*📝 Description Has Been Changed To*\n@desc").replace('@desc', _0x44a543.desc);
     } else {
       if (_0x44a543.subject) {
-        _0x273de4 = (_0x245509.sSubject || this.sSubject || conn.sSubject || "*⚡ Subject Has Been Changed To*\n\n@subject").replace('@subject', _0x44a543.subject);
+        _0x273de4 = (_0x245509.sSubject || this.sSubject || conn.sSubject || "*👀 Subject Has Been Changed To*\n@subject").replace('@subject', _0x44a543.subject);
       } else {
         if (_0x44a543.icon) {
-          _0x273de4 = (_0x245509.sIcon || this.sIcon || conn.sIcon || "*⚡ Icon Has Been Changed*").replace("@icon", _0x44a543.icon);
+          _0x273de4 = (_0x245509.sIcon || this.sIcon || conn.sIcon || "*🎇 Icon Has Been Changed*").replace("@icon", _0x44a543.icon);
         } else {
           if (_0x44a543.revoke) {
-            _0x273de4 = (_0x245509.sRevoke || this.sRevoke || conn.sRevoke || "*⚡ Group Link Has Been Changed To*\n\n@revoke").replace('@revoke', _0x44a543.revoke);
+            _0x273de4 = (_0x245509.sRevoke || this.sRevoke || conn.sRevoke || "*🔗 Group Link Has Been Changed To*\n@revoke").replace('@revoke', _0x44a543.revoke);
           } else {
             if (_0x44a543.announce === true) {
               _0x273de4 = _0x245509.sAnnounceOn || this.sAnnounceOn || conn.sAnnounceOn || "*🔒 Group Is Now Closed!*";
@@ -689,25 +704,16 @@ export async function presenceUpdate(_0x5e6e69) {
 global.dfail = (_0x533536, _0x5bc48c, _0x4694e0) => {
   const _0x29a361 = "👋🏻 Hai *@" + _0x5bc48c.sender.split('@')[0x0] + "*, ";
   const _0x5ce2bf = {
-    
-    //'owner': "*🪀 Owner's Query*\n\n    " + _0x29a361 + " This Command Can Only Be Used By The *Bot Owner*!",
-    'owner': "_◽You Are Not My Owner_",
-   // 'moderator': "*🛡️ Moderator's Query*\n\n    " + _0x29a361 + " This Command Can Only Be Used By *Moderators*!",
-   'moderator': "_◽You Are Not My Moderator_",
-   // 'premium': "*💎 Premium Query*\n\n    " + _0x29a361 + " This Command Is Only For *Premium Members*!",
-   'premium': "_◽ Premium Users Only_",
-    //'group': "*👥 Group Query*\n\n    " + _0x29a361 + " This Command Can Only Be Used In *Group Chats*!",
-    'group': "_◽Only Works In Group_",
-    //'private': "*👻 Private Query*\n\n    " + _0x29a361 + " This Command Can Only Be Used In *Private Chats*!",
-    'group': "_◽DM Me Its Private message_",
-   // 'admin': "*👤 Admin's Query*\n\n    " + _0x29a361 + " This Command Is Only For *Group Admins*!",
-    'admin': "_◽You Are Not An Admin_",
- //  'botAdmin': "*😸 Bot Admin's Query*\n\n    " + _0x29a361 + " Make The Bot An *Admin* To Use This Command!",
-   'botAdmin': "_◽You Are Not An Bot Admin_"
-     'unreg': "*🔒 Registration Query*\n\n    " + _0x29a361 + " Please Register To Use This Feature By Typing:\n\n*#register name.age*\n\nExample: *#register " + _0x5bc48c.name + ".18*!",
-    'nsfw': "*🔞 NSFW Query*\n\n    " + _0x29a361 + " NSFW Is Not Active. Please Contact The Group Admin To Enable This Feature!",
-  //  'restrict': "*🙊 Inactive Feature Query*\n\n    " + _0x29a361 + " This feature is *disabled*!"
-  'restrict': "_◽Inactive Feature, Its Disabled_"
+    'owner': "*🔒Comming Soon*",
+    'moderator': "*🔒Comming Soon*",
+    'premium': "*🔒Comming Soon*",
+    'group': "*🔒Comming Soon*",
+    'private': "*🔒Comming Soon*",
+    'admin': "*🔒Comming Soon*",
+    'botAdmin': "*🔒Comming Soon*",
+    'unreg': "*🔒Comming Soon*",
+    'nsfw': "*🔒Comming Soon*",
+    'restrict': "*🔒Comming Soon*"
   }[_0x533536];
   if (_0x5ce2bf) {
     return _0x5bc48c.reply(_0x5ce2bf);

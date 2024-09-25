@@ -16,7 +16,7 @@ _0x271a6d("𝐊𝐞𝐢𝐤𝐨 𝐕𝟓", {
   }
   console.log(_0x1a500b.yellow(_0x4f5432));
 });
-_0x271a6d("V7 Bot", {
+_0x271a6d("V7 <3 Bot", {
   'horizontalLayout': 'default',
   'verticalLayout': 'default'
 }, (_0xd63aee, _0x58972f) => {
@@ -63,7 +63,7 @@ async function start(_0xf61d51) {
   });
   _0x111f39.on('exit', _0x4742ba => {
     isRunning = false;
-    console.error(_0x1a500b.red("Exited With Code: " + _0x4742ba));
+    console.error(_0x1a500b.red("❌Exited With Code: " + _0x4742ba));
     if (_0x4742ba === 0x0) {
       return;
     }
@@ -84,7 +84,7 @@ async function start(_0xf61d51) {
       console.error(_0x1a500b.red("Error reading plugins folder: " + _0x105982));
       return;
     }
-    console.log(_0x1a500b.yellow("Installed " + _0x5b85f0.length + " plugins"));
+    console.log(_0x1a500b.yellow("✅Installed " + _0x5b85f0.length + " plugins"));
     try {
       const {
         default: _0xdff069
