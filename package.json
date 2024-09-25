@@ -1,7 +1,7 @@
 {
     "name": "ameenai",
     "version": "2.1.0",
-    "description": "Advanced WhatsApp Ai",
+    "description": "Advanced Keiko WhatsApp Ai",
     "main": "index.js",
     "type": "module",
     "directories": {
