@@ -24,7 +24,7 @@ global.__require = function require(dir = import.meta.url) {
   return createRequire(dir)
 }
 
-global.developer = [['916238768108@s.whatsapp.net'], ['263713955768@s.whatsapp.net'], ['919580622321@s.whatsapp.net']; // Ameen's number
+global.developer = [['916238768108@s.whatsapp.net'], ['263713955768@s.whatsapp.net'], ['919580622321@s.whatsapp.net']] // Ameen's number
 
 global.gurubot = 'https://www.guruapi.tech/api'
 global.calcifer = 'https://ameen-api.vercel.app/'
