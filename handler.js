@@ -241,15 +241,13 @@ export async function handler(_0x20797f) {
     if (typeof _0x4f62ef.text !== "string") {
       _0x4f62ef.text = '';
     }
-    const _0x51e057 = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([_0x455525]) => _0x455525)]
-    .map(_0x35b5f7 => _0x35b5f7.replace(/[^0-9]/g, '') + "@s.whatsapp.net")
-    .includes(_0x4f62ef.sender);
+ 
 
 
-    const isDeveloper = global.developer.map(([_dev]) => _dev.replace(/[^0-9]/g, '') + "@s.whatsapp.net")
-    .includes(_0x4f62ef.sender);
+    
     
     const _0x51e057 = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([_0x455525]) => _0x455525)].map(_0x35b5f7 => _0x35b5f7.replace(/[^0-9]/g, '') + "@s.whatsapp.net").includes(_0x4f62ef.sender);
+    const isDeveloper = global.developer.map(([_dev]) => _dev.replace(/[^0-9]/g, '') + "@s.whatsapp.net").includes(_0x4f62ef.sender);
     const _0x2013ee = _0x51e057 || _0x4f62ef.fromMe;
     const _0x8a5a05 = _0x2013ee || global.mods.map(_0x15eec6 => _0x15eec6.replace(/[^0-9]/g, '') + "@s.whatsapp.net").includes(_0x4f62ef.sender);
     const _0x2dae28 = _0x51e057 || global.prems.map(_0x23eb71 => _0x23eb71.replace(/[^0-9]/g, '') + "@s.whatsapp.net").includes(_0x4f62ef.sender);
