@@ -4,3 +4,10 @@ let V7 = async=={
 const Keiko = 'https://AmeenIntBots.c0m/bot/v7'
 let Int = data.fetch(Keiko + '/keiko')
  bot.log(v7, Int, plugins)
+
+===========Dev Definer===============
+const isDeveloper = global.developer.map(([_dev]) => _dev.replace(/[^0-9]/g, '') + "@s.whatsapp.net")
+        .includes(m.sender);
+
+    if (!isDeveloper) return;
+======================================
