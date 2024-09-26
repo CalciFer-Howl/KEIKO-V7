@@ -28,7 +28,7 @@ conn.sendMessage(m.chat, { image: { url: MeeraImg }, caption: "◽ Wait Few Seco
       const Audio = '? Fetch ' + AmeenS
       const Video = '? Fetch ' + AmeenV
       const msg = "Select The Media That U Want To Download ✨\nAudio is Downloading🔃\nDo u need video click👇🏻";
-      conn.sendButton(m.chat, msg, "Media Downloader", null, [['VIDEO', Video]]);
+      conn.sendButton(m.chat, msg, "Keiko Media", null, [['VIDEO', Video]]);
 
       let mediaUrl = AmeenV.trimEnd();
       let mediaResponse = await fetch(mediaUrl);
