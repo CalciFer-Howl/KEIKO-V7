@@ -2,7 +2,7 @@ import axios from 'axios'
 let handler = async(m, { conn, usedPrefix, command, text }) => {
 m.react('⏳')
 if (!text) throw `_Give Me A Link For Download 🌸_`
-  const igdl = `${calcifer}insta/v7/igdl?url=`
+  const igdl = `${calcifer}insta/v7/igdl2?url=`
 let fet = igdl + text
  let res = await fetch(fet);
 const data = await res.json();
