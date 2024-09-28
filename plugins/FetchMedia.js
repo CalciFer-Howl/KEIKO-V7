@@ -30,7 +30,7 @@ let handler = async (m, { conn,
 
 handler.help = ['? fetch']
 handler.tags = ['media']
-handler.customPrefix = /^[?]/
+handler.customPrefix = /^[!]/
 handler.command = new RegExp()
 
 export default handler
