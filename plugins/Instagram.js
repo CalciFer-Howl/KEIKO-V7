@@ -6,8 +6,8 @@ if (!text) throw `_Give Me A Link For Download 🌸_`
 let fet = igdl + text
  let hehe = await fetch(fet);
 const data = await hehe.json();
-  const open = data.downloadLinks
-  for (const Meera of open) {
+  //const open = data.downloadLinks
+ // for (const Meera of open) {
 var mimmi = Meera.media[0].url
   
   
@@ -26,7 +26,7 @@ let CapI = '*-Take Your Image🧚🏻‍♂️🤍*'
 conn.sendFile(m.chat, mimmi, 'keiko.mp4', Cap, m)
 // conn.sendFile(m.chat, mimmi, 'keiko.jpg', CapI, m)
 
-}
+//}
 
 m.react('✅')
 }
