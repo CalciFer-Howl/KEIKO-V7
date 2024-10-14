@@ -8,7 +8,7 @@ let fet = igdl + text
 const data = await hehe.json();
   //const open = data.downloadLinks
  // for (const Meera of open) {
-var mimmi = Meera.media[0].url
+var mimmi = data.media[0].url
   
   
 /*  let fet = igdl + text
