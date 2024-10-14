@@ -6,7 +6,9 @@ if (!text) throw `_Give Me A Link For Download 🌸_`
 let fet = igdl + text
  let hehe = await fetch(fet);
 const data = await hehe.json();
-var mimmi = data.media[0].url
+  const open = data.downloadLinks
+  for (const Meera of open) {
+var mimmi = Meera.media[0].url
   
   
 /*  let fet = igdl + text
