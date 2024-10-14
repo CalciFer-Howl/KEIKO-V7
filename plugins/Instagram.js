@@ -2,15 +2,21 @@ import axios from 'axios'
 let handler = async(m, { conn, usedPrefix, command, text }) => {
 m.react('⏳')
 if (!text) throw `_Give Me A Link For Download 🌸_`
-  const igdl = `${calcifer}insta/v7/igdl2?url=`
+  const igdl = `${calcifer}insta/v7/igdl?url=`
 let fet = igdl + text
+ let hehe = await fetch(fet);
+const data = await hehe.json();
+var mimmi = data.media[0].url
+  
+  
+/*  let fet = igdl + text
  let res = await fetch(fet);
 const data = await res.json();
 const open = data.downloadLinks
  for (const Meera of open) {
 const mimmi = Meera.url
 const mediaType = Meera.type
-m.reply(mediaType)
+m.reply(mediaType)*/
 let Cap = '*-Take Your Video🧚🏻‍♂️⚡*'
 let CapI = '*-Take Your Image🧚🏻‍♂️🤍*'
 
