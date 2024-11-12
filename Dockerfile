@@ -8,11 +8,8 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     rm -rf /var/lib/apt/lists/*
 
-COPY package.json .
-
-RUN yarn install && npm install qrcode-terminal
-
-COPY . .
-
-EXPOSE 5000
+RUN git clone https://github.com/CalciFer-Howl/KEIKO-V7.git /ninja
+WORKDIR /ninja
+RUN npm install
 CMD ["npm", "start"]
+
