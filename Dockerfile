@@ -14,6 +14,6 @@ RUN yarn install && npm install qrcode-terminal
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 8000
 
 CMD ["npm", "start"]
