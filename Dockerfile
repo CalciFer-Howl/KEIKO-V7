@@ -1,4 +1,4 @@
-FROM node:18.16.0-bullseye-slim
+FROM node:20
 
 RUN apt-get update && \
     apt-get install -y \
@@ -10,6 +10,6 @@ RUN apt-get update && \
 
 RUN git clone https://github.com/CalciFer-Howl/KEIKO-V7.git /ninja
 WORKDIR /ninja
-RUN npm install
+RUN yarn install
 CMD ["npm", "start"]
 
